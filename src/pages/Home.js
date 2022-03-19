@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import ButtonPanel from '../components/ButtonPanel';
 import { GREEN, ORANGE_RED } from '../constants/palette';
-import { StateContext } from '../App';
 
 export default function Home({
   setCurrentGameId,

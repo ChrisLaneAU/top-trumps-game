@@ -14,28 +14,19 @@ See the demo app at: https://top-trumps-game.web.app/
 yarn
 ```
 
-2. Create a Firebase project following this [setup guide](https://firebase.google.com/docs/web/setup), make sure to include a realtime database.
+2. Install firebase command line tools:
 
-3. Copy the Firebase config object generated during setup.
-
-4. Create a file `/src/api/firebaseConfig.js`
-
-5. The contents of this new file should be (replace the `'...'` with your own config object from step 3):
-
-```js
-const firebaseConfig = {
-  apiKey: '...',
-  authDomain: '...',
-  databaseURL: '...',
-  projectId: '...',
-  storageBucket: '...',
-  messagingSenderId: '...',
-  appId: '...',
-  measurementId: '...',
-};
-
-export default firebaseConfig;
+```sh
+npm i -g firebase-tools
 ```
+
+3. Create a Firebase project following this [setup guide](https://firebase.google.com/docs/web/setup), make sure to include a realtime database.
+
+4. Copy the Firebase config object generated during setup.
+
+5. Create a file in the root of the project called `.env`
+
+6. Copy the contents of the `.env.example` file across to your new `.env` file and fill out the values from the config object you got from step 4. All of the variables are prefixed with `REACT_APP_` and converted to upper snake case. For example, `apiKey` becomes `REACT_APP_API_KEY`.
 
 ## Available Scripts
 

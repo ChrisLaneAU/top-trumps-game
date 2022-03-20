@@ -67,6 +67,7 @@ const CardBack = styled.div`
 `;
 
 const Card = ({
+  bgImgSrc,
   cardData = {},
   className,
   deleteEntry,
@@ -87,7 +88,7 @@ const Card = ({
       onClick={onClickCard}
       {...htmlAttributes}>
       <CardFront isRotated={isRotated}>
-        <BackgroundFront src="./images/australia-bg.jpeg" />
+        <BackgroundFront src={bgImgSrc} />
         <Heading>
           {countryName} {flag} {countryName === 'China' && 'Top Trump!'}
         </Heading>

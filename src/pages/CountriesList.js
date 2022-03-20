@@ -42,6 +42,9 @@ export default function CountriesList({ countries, openModal, setFormValues }) {
         <CardsWrapper>
           {Object.values(countries).map((country) => (
             <Card
+              bgImgSrc={`./images/${country.countryName
+                ?.replace(' ', '-')
+                ?.toLowerCase()}-bg.jpg`}
               deleteEntry={deleteEntry}
               cardData={country}
               key={country.countryName}

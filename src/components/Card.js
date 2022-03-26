@@ -6,6 +6,7 @@ import {
   MEDIUM_GREY,
   ORANGE_RED,
   RED,
+  WHITE,
 } from '../constants/palette';
 import toSentence from '../utils/to-sentence';
 import Button from './Button';
@@ -50,6 +51,11 @@ const BackgroundFront = styled.img`
 
 const Heading = styled.div``;
 
+const StatButton = styled(Button)`
+  color: ${WHITE};
+  margin: 5px;
+`;
+
 const StatName = styled.span`
   font-weight: normal;
 `;
@@ -75,11 +81,17 @@ const Card = ({
   ...htmlAttributes
 }) => {
   const [isRotated, setIsRotated] = useState(false);
+  const [activeStatName, setActiveStatName] = useState();
 
   const { countryName, flag } = cardData;
 
   const onClickCard = () => {
     setIsRotated((prevIsRotated) => !prevIsRotated);
+  };
+
+  const onClickStat = (event, statName) => {
+    event.stopPropagation();
+    setActiveStatName(statName);
   };
 
   return (
@@ -95,10 +107,13 @@ const Card = ({
         <br />
         {Object.entries(cardData).map(([statName, statValue]) =>
           ['countryName', 'flag'].includes(statName) ? null : (
-            <div key={statName}>
+            <StatButton
+              onClick={(event) => onClickStat(event, statName)}
+              bgColor={activeStatName === statName ? ORANGE_RED : BLACK}
+              key={statName}>
               <StatName>{toSentence(statName)}:</StatName>{' '}
               <StatValue>{statValue}</StatValue>
-            </div>
+            </StatButton>
           ),
         )}
         {shouldShowButtons && (
